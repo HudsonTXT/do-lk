@@ -1,3 +1,4 @@
+vae songId = 0;
 $(function () {
     VK.init({
         apiId: 4004433
@@ -5,7 +6,8 @@ $(function () {
     $(document).on('click', '.dance__songs .block_element', function () {
         $('div').removeClass('dance__songs_selected');
         $(this).addClass('dance__songs_selected');
-
+        $('.godance').show();
+        songId = $(this).attr('data-song-id');
     });
 
     $.getJSON('//fandance.ru/music/events.php?do=getSongs', function (json) {
@@ -22,6 +24,10 @@ $(function () {
         }
     });
     check_login();
+
+    $(document).on('click', '.godance', function () {
+        location.href = 'http://fandance.ru/music/dance.php?type=0&song_id=' + songId;
+    });
 });
 
 function check_login() {

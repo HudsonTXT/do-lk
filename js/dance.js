@@ -36,7 +36,7 @@ function check_login() {
 
                 $('.sidebar_userinfo__avatar').attr('src', user.photo_100);
                 $('.about__fio').text(user.first_name + ' ' + user.last_name);
-                $('.about__money span').text(user.coins);
+                $('.about__money span').text(json.user.coins);
             })
 
         } else {

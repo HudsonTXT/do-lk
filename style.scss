@@ -52,6 +52,7 @@ body {
     -moz-animation: button 5s ease infinite;
     animation: button 5s ease infinite;
     margin: 0 auto;
+    user-select: none;
     &:hover {}
 }
 
@@ -152,6 +153,7 @@ menu {
                         width: 15px;
                         height: 15px;
                         display: inline-block;
+                        vertical-align: middle;
                     }
                 }
                 .about__money {
@@ -193,6 +195,20 @@ menu {
     }
     .block {
         width: 100%;
+        .block__separator {
+            font: 16px 'Proxima Nova Light';
+            display: inline-block;
+            vertical-align: top;
+            color: #333;
+            line-height: 50px;
+            height: 50px;
+        }
+        .block_element {
+            height: 50px;
+            border-bottom: 1px solid #e7e7e7;
+            line-height: 50px;
+            transition: all .2s linear;
+        }
         .block_header {
             font: 24px 'Proxima Nova Semibold';
             color: #333;
@@ -213,9 +229,97 @@ menu {
             box-shadow: 0px 2px 4px 0px rgba(185, 185, 185, 0.28);
             width: 100%;
             margin-bottom: 34px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            user-select: text;
         }
     }
     .news .block_content {
         height: 250px;
+        .news__icon {
+            width: 68px;
+            text-align: center;
+        }
+        .news__icon img {
+            vertical-align: middle;
+        }
     }
+    .dance {
+        position: relative;
+        .block_element {
+            padding: 0 16px;
+        }
+        .block_content {
+            height: 377px;
+        }
+        .dance__fixed {
+            position: absolute;
+            background: rgba(241, 241, 243, 1);
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0px 11px 63px rgba(0, 0, 0, 0.12);
+        }
+        .dance__fixed .block__separator {
+            font-family: 'Proxima Nova Semibold' !important;
+        }
+        .dance__track {
+            width: 550px;
+        }
+        .dance__bpm {
+            width: 165px;
+        }
+        .dance__songs {
+            margin-top: 60px;
+            .block_element:hover:not(.dance__songs_selected) {
+                background: linear-gradient( 90deg, rgba(33, 212, 253, .2) 0%, rgba(183, 33, 255, .2) 100%);
+                background-size: 400% 400%;
+                -webkit-animation: button 5s ease infinite;
+                -moz-animation: button 5s ease infinite;
+                animation: button 5s ease infinite;
+                cursor: pointer;
+            }
+        }
+        .dance__songs_selected {
+            background: linear-gradient( 90deg, rgb(33, 212, 253) 0%, rgb(183, 33, 255) 100%);
+            background-size: 400% 400%;
+            -webkit-animation: button 5s ease infinite;
+            -moz-animation: button 5s ease infinite;
+            animation: button 5s ease infinite;
+            .block__separator {
+                color: white;
+                font-family: 'Proxima Nova Semibold';
+            }
+        }
+    }
+}
+
+.block_content::-webkit-scrollbar-button {
+    display: none;
+    height: 13px;
+    border-radius: 0px;
+    background-color: #AAA;
+}
+
+.block_content::-webkit-scrollbar-button:hover {
+    background-color: #AAA;
+}
+
+.block_content::-webkit-scrollbar-thumb {
+    background-color: #21d4fd;
+}
+
+.block_content::-webkit-scrollbar-thumb:hover {
+    background-color: #CCC;
+}
+
+.block_content::-webkit-scrollbar-track {
+    background-color: #efefef;
+}
+
+.block_content::-webkit-scrollbar-track:hover {
+    background-color: #CCC;
+}
+
+.block_content::-webkit-scrollbar {
+    width: 1px;
 }

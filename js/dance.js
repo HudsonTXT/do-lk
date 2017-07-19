@@ -8,7 +8,7 @@ $(function () {
 
     });
 
-    $.getJSON('https://fandance.ru/music/events.php?do=getSongs', function (json) {
+    $.getJSON('//fandance.ru/music/events.php?do=getSongs', function (json) {
         if (json) {
             $('.dance__songs').html(' ');
             for (var i = json.length - 1; i >= 0; i--) {
@@ -25,7 +25,7 @@ $(function () {
 });
 
 function check_login() {
-    $.getJSON('https://fandance.ru/music/events.php?do=check_login', function (json) {
+    $.getJSON('//fandance.ru/music/events.php?do=check_login', function (json) {
         if (json.loginned) {
             //Loginned user
             VK.Api.call('users.get', {
@@ -40,7 +40,7 @@ function check_login() {
             })
 
         } else {
-            //history.back();
+            history.back();
         }
     });
 }

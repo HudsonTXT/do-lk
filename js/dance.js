@@ -1,4 +1,7 @@
 $(function () {
+    VK.init({
+        apiId: 4004433
+    });
     $(document).on('click', '.dance__songs .block_element', function () {
         $('div').removeClass('dance__songs_selected');
         $(this).addClass('dance__songs_selected');
@@ -18,4 +21,26 @@ $(function () {
             }
         }
     });
+    check_login();
 });
+
+function check_login() {
+    $.getJSON('http://fandance.ru/music/events.php?do=check_login', function (json) {
+        if (json.loginned) {
+            //Loginned user
+            VK.Api.call('users.get', {
+                user_ids: json.user.mid,
+                fields: 'photo_100'
+            }, function (r) {
+                user = r.response[0];
+
+                $('.sidebar_userinfo__avatar').attr('src', user.photo_100);
+                $('.about__fio').text(user.first_name + ' ' + user.last_name);
+                $('.about__money span').text(user.coins);
+            })
+
+        } else {
+            history.back();
+        }
+    });
+}

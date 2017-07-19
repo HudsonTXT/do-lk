@@ -40,7 +40,7 @@ function check_login() {
             })
 
         } else {
-            history.back();
+            //history.back();
         }
     });
 }

@@ -1,4 +1,4 @@
-vae songId = 0;
+var songId = 0;
 $(function () {
     VK.init({
         apiId: 4004433

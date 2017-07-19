@@ -105,6 +105,23 @@ menu {
     padding: 0;
     line-height: 50px !important;
     .logo {
+        float: left;
+    }
+    .links {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 640px;
+        a {
+            text-decoration: none;
+            color: inherit;
+            font-size: 16px;
+        }
+        li {
+            margin-left: 30px;
+        }
+    }
+    li {
+        list-style: none;
         display: inline-block;
         vertical-align: middle;
     }

@@ -3,3 +3,4 @@
 # Example .gitignore files: https://github.com/github/gitignore
 /bower_components/
 /node_modules/
+/.sass-cache/300164543a45caa0b57319f21cf35c8218fc1712/style.scssc

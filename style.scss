@@ -1,6 +1,9 @@
 body {
     margin: 0;
     padding: 0;
+    background-image: -moz-linear-gradient( 90deg, rgb(48, 207, 208) 0%, rgb(51, 8, 103) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(48, 207, 208) 0%, rgb(51, 8, 103) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(48, 207, 208) 0%, rgb(51, 8, 103) 100%);
 }
 
 .wrap {

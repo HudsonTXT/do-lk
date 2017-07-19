@@ -25,7 +25,7 @@ $(function () {
 });
 
 function check_login() {
-    $.getJSON('http://fandance.ru/music/events.php?do=check_login', function (json) {
+    $.getJSON('https://fandance.ru/music/events.php?do=check_login', function (json) {
         if (json.loginned) {
             //Loginned user
             VK.Api.call('users.get', {

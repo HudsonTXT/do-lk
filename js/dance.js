@@ -34,7 +34,7 @@ $(function () {
     check_login();
 
     $(document).on('click', '.godance', function () {
-        location.href = 'fandance.ru/music/dance.php?type=0&song_id=' + songId;
+        location.href = 'https://fandance.ru/music/dance.php?type=0&song_id=' + songId;
     });
 });
 

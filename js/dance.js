@@ -10,6 +10,14 @@ $(function () {
         songId = $(this).attr('data-song-id');
     });
 
+    $('#logout').click(function () {
+        $.getJSON('//fandance.ru/music/events.php?do=logout', function (json) {
+            alert(json.mes);
+            location.href = 'fandance.ru/do';
+            //location.href = 'fandance.ru/music';
+        });
+    });
+
     $.getJSON('//fandance.ru/music/events.php?do=getSongs', function (json) {
         if (json) {
             $('.dance__songs').html(' ');
@@ -26,7 +34,7 @@ $(function () {
     check_login();
 
     $(document).on('click', '.godance', function () {
-        location.href = 'http://fandance.ru/music/dance.php?type=0&song_id=' + songId;
+        location.href = 'fandance.ru/music/dance.php?type=0&song_id=' + songId;
     });
 });
 

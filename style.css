@@ -7,7 +7,11 @@ body {
   background: url(img/bg-1.png) top center no-repeat, -moz-linear-gradient(90deg, #30cfd0 0%, #330867 100%);
   background: url(img/bg-1.png) top center no-repeat, -webkit-linear-gradient(90deg, #30cfd0 0%, #330867 100%);
   background: url(img/bg-1.png) top center no-repeat, -ms-linear-gradient(90deg, #30cfd0 0%, #330867 100%);
-  background-position-y: 50px; }
+  background-position-y: 50px;
+  -webkit-font-smoothing: subpixel-antialiased !important;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden; }
 
 .clearfix:after {
   visibility: hidden;

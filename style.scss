@@ -8,6 +8,10 @@ body {
     background: url(img/bg-1.png) top center no-repeat, -webkit-linear-gradient( 90deg, rgb(48, 207, 208) 0%, rgb(51, 8, 103) 100%);
     background: url(img/bg-1.png) top center no-repeat, -ms-linear-gradient( 90deg, rgb(48, 207, 208) 0%, rgb(51, 8, 103) 100%);
     background-position-y: 50px;
+    -webkit-font-smoothing: subpixel-antialiased !important;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
 }
 
 .clearfix:after {

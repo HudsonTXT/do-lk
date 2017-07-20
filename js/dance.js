@@ -13,7 +13,7 @@ $(function () {
     $('#logout').click(function () {
         $.getJSON('//fandance.ru/music/events.php?do=logout', function (json) {
             alert(json.mes);
-            location.href = 'fandance.ru/do';
+            location.href = 'https://fandance.ru/do';
             //location.href = 'fandance.ru/music';
         });
     });

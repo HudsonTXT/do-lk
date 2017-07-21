@@ -24,3 +24,20 @@ function showActivity() {
 function closeActivity() {
     $(".activity_block").removeClass('slideInDown').addClass('animated slideOutUp').delay(200).fadeOut();
 }
+
+/* Selecatble song */
+$(document).on('click', '.dance__songs .block_element', function () {
+    $('div').removeClass('dance__songs_selected');
+    $(this).addClass('dance__songs_selected');
+    $('.godance').slideDown()
+    songId = $(this).attr('data-song-id');
+});
+
+$(document).on('click', '.godance', function () {
+    if (songId != 0) {
+        location.href = 'https://fandance.ru/music/dance.php?type=0&song_id=' + songId;
+    } else {
+        alert('Пожалуйста, выберите трек!');
+    }
+
+});

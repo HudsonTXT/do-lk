@@ -3,12 +3,7 @@ $(function () {
     VK.init({
         apiId: 4004433
     });
-    $(document).on('click', '.dance__songs .block_element', function () {
-        $('div').removeClass('dance__songs_selected');
-        $(this).addClass('dance__songs_selected');
-        $('.godance').slideDown()
-        songId = $(this).attr('data-song-id');
-    });
+
 
     $('#logout').click(function () {
         $.getJSON('//fandance.ru/music/events.php?do=logout', function (json) {
@@ -33,9 +28,7 @@ $(function () {
     });
     check_login();
 
-    $(document).on('click', '.godance', function () {
-        location.href = 'https://fandance.ru/music/dance.php?type=0&song_id=' + songId;
-    });
+
 });
 
 function check_login() {

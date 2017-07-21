@@ -1,13 +1,21 @@
+@import 'activity';
+@import 'fonts';
+html {
+    height: 100%;
+}
+
 body {
     color: white;
     font: 14px 'Proxima Nova';
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    background: url(img/bg-1.png) top center no-repeat, -moz-linear-gradient( 90deg, rgb(48, 207, 208) 0%, rgb(51, 8, 103) 100%);
-    background: url(img/bg-1.png) top center no-repeat, -webkit-linear-gradient( 90deg, rgb(48, 207, 208) 0%, rgb(51, 8, 103) 100%);
-    background: url(img/bg-1.png) top center no-repeat, -ms-linear-gradient( 90deg, rgb(48, 207, 208) 0%, rgb(51, 8, 103) 100%);
-    background-position-y: 50px;
+    min-width: 1140px;
+    background: -moz-linear-gradient(90deg, #30cfd0 0%, #330867 100%);
+    background: -webkit-linear-gradient(90deg, #30cfd0 0%, #330867 100%);
+    background: -ms-linear-gradient(90deg, #30cfd0 0%, #330867 100%);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     -webkit-font-smoothing: subpixel-antialiased !important;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
@@ -108,13 +116,17 @@ menu {
     margin: 0;
     padding: 0;
     line-height: 50px !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
     .logo {
         float: left;
     }
     .links {
         display: inline-block;
         vertical-align: middle;
-        margin-left: 640px;
+        float: right;
         a {
             text-decoration: none;
             color: inherit;
@@ -131,12 +143,82 @@ menu {
     }
 }
 
+.block {
+    width: 100%;
+    .block__separator {
+        font: 16px 'Proxima Nova Light';
+        display: inline-block;
+        vertical-align: top;
+        color: #333;
+        line-height: 50px;
+        height: 50px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .block_element {
+        height: 50px;
+        border-bottom: 1px solid #e7e7e7;
+        line-height: 50px;
+        transition: all .2s linear;
+    }
+    .block_header {
+        font: 24px 'Proxima Nova Semibold';
+        color: #333;
+        margin-bottom: 24px;
+        position: relative;
+        &:before {
+            content: ' ';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: #e7e7e7;
+            bottom: -10px;
+        }
+    }
+    .block_content {
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 2px 4px 0px rgba(185, 185, 185, 0.28);
+        width: 100%;
+        margin-bottom: 34px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        user-select: text;
+    }
+}
+
+.news .block_element {
+    height: auto;
+    line-height: normal;
+    padding: 10px 0;
+}
+
+.news .block_content {
+    .news__icon {
+        width: 60px;
+        text-align: center;
+    }
+    .news__icon img {
+        max-width: 36px;
+        height: auto;
+        vertical-align: middle;
+    }
+    .news__text {
+        width: 80%;
+        height: auto;
+        font-size: 14px;
+        line-height: 20px;
+        white-space: inherit;
+        overflow: auto;
+        text-overflow: inherit;
+    }
+}
+
 .content {
     background: #f2f2f2;
     position: relative;
-    margin-top: 351px;
-    height: 100%;
-    margin-bottom: 100px;
+    min-height: 100%;
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -214,57 +296,6 @@ menu {
         padding: 34px 15px;
         box-sizing: border-box;
     }
-    .block {
-        width: 100%;
-        .block__separator {
-            font: 16px 'Proxima Nova Light';
-            display: inline-block;
-            vertical-align: top;
-            color: #333;
-            line-height: 50px;
-            height: 50px;
-        }
-        .block_element {
-            height: 50px;
-            border-bottom: 1px solid #e7e7e7;
-            line-height: 50px;
-            transition: all .2s linear;
-        }
-        .block_header {
-            font: 24px 'Proxima Nova Semibold';
-            color: #333;
-            margin-bottom: 24px;
-            position: relative;
-            &:before {
-                content: ' ';
-                position: absolute;
-                width: 100%;
-                height: 1px;
-                background: #e7e7e7;
-                bottom: -10px;
-            }
-        }
-        .block_content {
-            width: 100%;
-            background-color: rgb(255, 255, 255);
-            box-shadow: 0px 2px 4px 0px rgba(185, 185, 185, 0.28);
-            width: 100%;
-            margin-bottom: 34px;
-            overflow-x: hidden;
-            overflow-y: auto;
-            user-select: text;
-        }
-    }
-    .news .block_content {
-        height: 250px;
-        .news__icon {
-            width: 68px;
-            text-align: center;
-        }
-        .news__icon img {
-            vertical-align: middle;
-        }
-    }
     .dance {
         position: relative;
         .block_element {
@@ -314,33 +345,49 @@ menu {
     }
 }
 
-.block_content::-webkit-scrollbar-button {
+.block_content::-webkit-scrollbar-button,
+.activity_block::-webkit-scrollbar-button {
     display: none;
     height: 13px;
     border-radius: 0px;
     background-color: #AAA;
 }
 
-.block_content::-webkit-scrollbar-button:hover {
+.block_content::-webkit-scrollbar-button:hover,
+.activity_block::-webkit-scrollbar-button:hover {
     background-color: #AAA;
 }
 
-.block_content::-webkit-scrollbar-thumb {
+.block_content::-webkit-scrollbar-thumb,
+.activity_block::-webkit-scrollbar-thumb {
     background-color: #21d4fd;
 }
 
-.block_content::-webkit-scrollbar-thumb:hover {
+.block_content::-webkit-scrollbar-thumb:hover,
+.activity_block::-webkit-scrollbar-thumb:hover {
     background-color: #CCC;
 }
 
-.block_content::-webkit-scrollbar-track {
+.block_content::-webkit-scrollbar-track,
+.activity_block::-webkit-scrollbar-track {
     background-color: #efefef;
 }
 
-.block_content::-webkit-scrollbar-track:hover {
+.block_content::-webkit-scrollbar-track:hover,
+.activity_block::-webkit-scrollbar-track:hover {
     background-color: #CCC;
 }
 
-.block_content::-webkit-scrollbar {
+.block_content::-webkit-scrollbar,
+.activity_block::-webkit-scrollbar {
     width: 1px;
+}
+
+.body__bg {
+    background: url(img/bg-1.png) top center no-repeat;
+    width: 100%;
+    background-position-y: 50px;
+    padding-top: 401px;
+    box-sizing: border-box;
+    padding-bottom: 50px;
 }

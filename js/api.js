@@ -51,10 +51,29 @@ function check_login() {
                 $('.sidebar_userinfo__avatar').attr('src', user.photo_100);
                 $('.about__fio').text(user.first_name + ' ' + user.last_name);
                 $('.about__money span').text(json.user.coins);
-            })
-
+                $('.about__exp span').text(json.user.lvl);
+            });
+            getActivity();
         } else {
-            history.back();
+            location.href = 'https://fandance.ru/music';
         }
+    });
+}
+
+function getActivity() {
+    $.getJSON('//fandance.ru/music/events.php?do=activity', function (json) {
+        $('.activity').html(' ');
+        for (var i = json.length - 1; i >= 0; i--) {
+            music = ' <div class="block_element">';
+            music += '<div class="news__icon block__separator">';
+            music += '<img src="img/' + json[i].img + '">';
+            music += '</div>';
+
+            music += '<div class="news__text block__separator">' + json[i].text + '</div>';
+            music += '</div>';
+            $('.activity').append(music);
+        }
+
+
     });
 }
